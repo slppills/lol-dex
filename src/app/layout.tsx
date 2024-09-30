@@ -1,17 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-
-const rixGodic = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import "../styles/globals.css";
+import "../../public/fonts/style.css";
 
 export const metadata: Metadata = {
   title: "리그 오브 레전드 정보 앱",
@@ -25,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${rixGodic.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

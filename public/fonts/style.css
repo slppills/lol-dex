@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "Beaufort";
+  src: url("./beaufort-for-lol/BeaufortforLOL-Light.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Beaufort";
+  src: url("./beaufort-for-lol/BeaufortforLOL-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Beaufort";
+  src: url("./beaufort-for-lol/BeaufortforLOL-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Beaufort";
+  src: url("./beaufort-for-lol/BeaufortforLOL-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Beaufort";
+  src: url("./beaufort-for-lol/BeaufortforLOL-Heavy.ttf");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Spiegel";
+  src: url("./Spiegel-Sans-Trial-Fonts/WOFF2/SpiegelSans-3Light_TRIAL.woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Spiegel";
+  src: url("./Spiegel-Sans-Trial-Fonts/WOFF2/SpiegelSans-5Regular_TRIAL.woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Spiegel";
+  src: url("./Spiegel-Sans-Trial-Fonts/WOFF2/SpiegelSans-6SemiBold_TRIAL.woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Spiegel";
+  src: url("./Spiegel-Sans-Trial-Fonts/WOFF2/SpiegelSans-7Bold_TRIAL.woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Spiegel";
+  src: url("./Spiegel-Sans-Trial-Fonts/WOFF2/SpiegelSans-8ExtraBold_TRIAL.woff2");
+  font-weight: 800;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Beaufort";
+}
+
+body {
+  font-family: "Spiegel";
+}
