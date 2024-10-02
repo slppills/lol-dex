@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import "../../public/fonts/style.css";
+import Image from "next/image";
+import MainLogo from "../../public/assets/images/logo-league.png";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "리그 오브 레전드 정보 앱",
@@ -13,8 +16,53 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body>{children}</body>
+    <html lang="ko" className="h-[100%]">
+      <body>
+        <header className="fixed bg-[#0b141e] w-full flex py-5 px-10 items-center justify-between z-10">
+          <div className="flex items-center">
+            <Link href="/">
+              <Image src={MainLogo} alt="리그오브레전드 로고" width={50} height={50} />
+            </Link>
+            <h1 className="text-[#c79a3b] font-bold text-[1.5rem]">League Of Legends</h1>
+          </div>
+          <div className="flex gap-8">
+            <Link href="/champions">
+              <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M17.875 6.333C17.875 1.056 10 0 10 0S2.125 1.056 2.125 6.333c0 5.278.225 6.123-1.125 7.39C1 13.722 2.013 19 6.625 19c0 0-2.25-2.111 0-7.389 0 0-3.375 0-2.25-4.222 3.263 0 4.5 2.111 4.5 2.111v5.278L10 15.833l1.125-1.055V9.5s1.125-2.111 4.5-2.111c1.125 4.222-2.25 4.222-2.25 4.222 2.25 5.383 0 7.389 0 7.389C17.988 19 19 13.722 19 13.722c-1.35-1.266-1.125-2.11-1.125-7.389Z"
+                  fill="#CAAB67"
+                ></path>
+              </svg>
+            </Link>
+            <svg width="30" height="30" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M13.222 0H.778L0 .778v12.444L.778 14h12.444l.778-.778V.778L13.222 0ZM5.444 3.889 7 2.333 8.556 3.89V7L7 8.556 5.444 7V3.889Zm7 8.555H1.556V1.556L3.11 3.11v4.667L7 10.888l3.889-3.11V3.11l1.555-1.555v10.888Z"
+                fill="#CAAB67"
+              ></path>
+            </svg>
+            <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M10 3C6.1 3 1 1 1 1v5c0 10 9 13 9 13s9-3.1 9-13V1s-5.1 2-9 2ZM3 8c0-1 1.3-1 2-1 2 0 3 2 3 2s0 2-2 2c-1.8 0-3-1.9-3-3Zm7 8c-3.1 0-4-3-4-3s1.4 1 4 1c2.4 0 4-1 4-1s-.9 3-4 3Zm4-5c-2 0-2-2-2-2s1-2 3-2c.7 0 2 0 2 1 0 1.1-1.2 3-3 3Z"
+                fill="#CAAB67"
+              ></path>
+            </svg>
+          </div>
+        </header>
+        <div>{children}</div>
+        <footer className="fixed bottom-0 w-full p-4 text-center bg-[#0b141e] z-10">
+          <p className="max-w-[1500px] mx-auto text-white text-[0.875rem]">
+            lol-dex is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone
+            officially involved in producing or managing Riot Games properties. Riot Games and all associated properties
+            are trademarks or registered trademarks of Riot Games, Inc.
+          </p>
+        </footer>
+      </body>
     </html>
   );
 }
