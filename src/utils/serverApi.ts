@@ -1,3 +1,5 @@
+"use server";
+
 type ChampionId = {
   id: string;
 };
@@ -31,10 +33,29 @@ export const fetchChampionList = async () => {
   }
 };
 
+export const fetchItemImg = async () => {
+  const version = await fetchGetVersion();
+  const baseUrl = `http://ddragon.leagueoflegends.com/cdn/${version}/img/item/`;
+  return baseUrl;
+};
+
 export const fetchChampionDetail = async ({ id }: ChampionId) => {
   const version = await fetchGetVersion();
   try {
     const res = await fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const fetchItemList = async () => {
+  const version = await fetchGetVersion();
+  try {
+    const res = await fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`, {
+      cache: "force-cache",
+    });
     const data = await res.json();
     return data;
   } catch (error) {
