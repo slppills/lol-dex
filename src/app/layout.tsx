@@ -36,14 +36,17 @@ export default function RootLayout({
                 ></path>
               </svg>
             </Link>
-            <svg width="30" height="30" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M13.222 0H.778L0 .778v12.444L.778 14h12.444l.778-.778V.778L13.222 0ZM5.444 3.889 7 2.333 8.556 3.89V7L7 8.556 5.444 7V3.889Zm7 8.555H1.556V1.556L3.11 3.11v4.667L7 10.888l3.889-3.11V3.11l1.555-1.555v10.888Z"
-                fill="#CAAB67"
-              ></path>
-            </svg>
+            <Link href="/items">
+              <svg width="30" height="30" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M13.222 0H.778L0 .778v12.444L.778 14h12.444l.778-.778V.778L13.222 0ZM5.444 3.889 7 2.333 8.556 3.89V7L7 8.556 5.444 7V3.889Zm7 8.555H1.556V1.556L3.11 3.11v4.667L7 10.888l3.889-3.11V3.11l1.555-1.555v10.888Z"
+                  fill="#CAAB67"
+                ></path>
+              </svg>
+            </Link>
+            <Link href="/rotation">
             <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 fillRule="evenodd"
@@ -51,7 +54,7 @@ export default function RootLayout({
                 d="M10 3C6.1 3 1 1 1 1v5c0 10 9 13 9 13s9-3.1 9-13V1s-5.1 2-9 2ZM3 8c0-1 1.3-1 2-1 2 0 3 2 3 2s0 2-2 2c-1.8 0-3-1.9-3-3Zm7 8c-3.1 0-4-3-4-3s1.4 1 4 1c2.4 0 4-1 4-1s-.9 3-4 3Zm4-5c-2 0-2-2-2-2s1-2 3-2c.7 0 2 0 2 1 0 1.1-1.2 3-3 3Z"
                 fill="#CAAB67"
               ></path>
-            </svg>
+            </svg></Link>
           </div>
         </header>
         <div>{children}</div>
