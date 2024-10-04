@@ -1,6 +1,6 @@
 import { fetchChampionDetail, fetchChampionImg } from "@/utils/serverApi";
 import React from "react";
-import { ChampionType } from "../page";
+import { ChampionType } from "@/types/Champion";
 import Image from "next/image";
 
 type Props = {
