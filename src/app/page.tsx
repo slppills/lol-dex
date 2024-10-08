@@ -33,7 +33,7 @@ export default function Home() {
             </Link>
           </div>
         )} */}
-      <audio ref={audioRef} src="/assets/mp3/gods.mp3" autoPlay muted loop />
+      <audio ref={audioRef} src="/assets/mp3/gods.mp3" autoPlay loop />
       {/* </div> */}
     </>
   );
