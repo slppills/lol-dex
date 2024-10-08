@@ -10,7 +10,6 @@ type Props = {
 };
 
 const ChampionDetailPage = async ({ params }: Props) => {
-  console.log(params);
   const baseUrl = await fetchChampionImg();
   const { data } = await fetchChampionDetail(params);
   const championInfo: ChampionType[] = Object.values(data);

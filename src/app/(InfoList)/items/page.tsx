@@ -7,7 +7,6 @@ const ItemPage = async () => {
   const baseUrl = await fetchItemImg();
   const { data } = await fetchItemList();
   const items: ItemType[] = Object.values(data);
-  console.log(items);
 
   return (
     <>

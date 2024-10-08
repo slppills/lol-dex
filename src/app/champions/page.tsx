@@ -7,7 +7,6 @@ const ChampionsPage = async () => {
   const { data } = await fetchChampionList();
   let champions: ChampionType[] = Object.values(data);
   champions = champions.sort((a, b) => a.name.localeCompare(b.name));
-  console.log(baseUrl);
 
   return (
     <>
