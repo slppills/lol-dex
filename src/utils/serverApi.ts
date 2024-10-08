@@ -1,17 +1,18 @@
 "use server";
 
+import { NextResponse } from "next/server";
+
 type ChampionId = {
   id: string;
 };
 
 export const fetchGetVersion = async () => {
-  try {
-    const res = await fetch("https://ddragon.leagueoflegends.com/api/versions.json");
-    const data: string[] = await res.json();
-    return data[0];
-  } catch (error) {
-    throw error;
+  const res = await fetch("https://ddragon.leagueoflegends.com/api/versions.json");
+  if (!res.ok) {
+    throw new Error("버전 확인 실패");
   }
+  const data: string[] = await res.json();
+  return data[0];
 };
 
 export const fetchChampionImg = async () => {
@@ -22,15 +23,14 @@ export const fetchChampionImg = async () => {
 
 export const fetchChampionList = async () => {
   const version = await fetchGetVersion();
-  try {
-    const res = await fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`, {
-      next: { revalidate: 86400 },
-    });
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    throw error;
+  const res = await fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`, {
+    next: { revalidate: 86400 },
+  });
+  if (!res.ok) {
+    throw new Error("챔피언 목록 불러오기 실패");
   }
+  const data = await res.json();
+  return data;
 };
 
 export const fetchItemImg = async () => {
@@ -41,13 +41,12 @@ export const fetchItemImg = async () => {
 
 export const fetchChampionDetail = async ({ id }: ChampionId) => {
   const version = await fetchGetVersion();
-  try {
-    const res = await fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`);
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    throw error;
+  const res = await fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`);
+  if (!res.ok) {
+    throw new Error("챔피언 상세정보 불러오기 실패");
   }
+  const data = await res.json();
+  return data;
 };
 
 export const fetchItemList = async () => {
@@ -61,4 +60,16 @@ export const fetchItemList = async () => {
   } catch (error) {
     throw error;
   }
+};
+export const fetchChampionRotation = async () => {
+  const apiKey = process.env.RIOT_API_KEY;
+  if (!apiKey) {
+    return NextResponse.json({ error: "API key is not set" }, { status: 500 });
+  }
+  const res = await fetch("https://kr.api.riotgames.com/lol/platform/v3/champion-rotations", {
+    headers: {
+      "X-Riot-Token": apiKey,
+    },
+  });
+  return res;
 };
